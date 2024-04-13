@@ -51,7 +51,7 @@ local M = {
               i = { '<cmd>GoModInit<cr>', 'Go mod init' },
               I = { '<cmd>GoImpl<cr>', 'Go implement interface' },
             },
-            i = { '<cmd>GoToggleInlay<cr>', 'Toggle inlay' },
+            -- i = { '<cmd>GoToggleInlay<cr>', 'Toggle inlay' },
             S = { '<cmd>GoFillStruct<cr>', 'Autofill struct' },
             t = {
               name = 'Tests',

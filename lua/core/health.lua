@@ -70,6 +70,22 @@ M.check = function()
     end
   end
 
+  if plugins.spectre.enable then
+    if os == "Darwin" then
+      if not utils.isExecutableAvailable("gsed") then
+        _warn("gsed was not found - nvim-spectre (search and replace) might not work")
+      else
+        _ok(string.format(exec_found_template, "gsed"))
+      end
+    else
+      if not utils.isExecutableAvailable("sed") then
+        _warn("sed was not found - nvim-spectre (search and replace) might not work")
+      else
+        _ok(string.format(exec_found_template, "sed"))
+      end
+    end
+  end
+
   if plugins.telescope.fzf_native.enable then
     if
       not (utils.isExecutableAvailable("cmake") or utils.isExecutableAvailable("make"))

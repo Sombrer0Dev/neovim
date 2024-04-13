@@ -18,7 +18,7 @@ return {
       desc = "Symbols (Trouble)",
     },
     {
-      "<leader>c<c-l>",
+      "gR",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
       desc = "LSP Definitions / references / ... (Trouble)",
     },
@@ -33,5 +33,17 @@ return {
       desc = "Quickfix List (Trouble)",
     },
   },
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  opts = {
+    modes = {
+      test = {
+        mode = 'diagnostics',
+        preview = {
+          type = "split",
+          relative = "win",
+          position = "right",
+          size = 0.3
+        }
+      }
+    }
+  }, -- for default options, refer to the configuration section for custom setup.
 }

@@ -45,4 +45,6 @@ local M = {
   end,
 }
 
+vim.keymap.set('n', '<leader>o', '<Cmd>Legendary<CR>', {desc = 'Open Legendary'})
+
 return M

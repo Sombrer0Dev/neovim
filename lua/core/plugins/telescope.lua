@@ -52,6 +52,7 @@ local M = {
     local actions = require 'telescope.actions'
     local action_layout = require 'telescope.actions.layout'
     local icons = require 'utils.icons'
+    local trouble = require 'trouble.sources.telescope'
 
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
     if conf.telescope.grep_hidden then
@@ -109,14 +110,15 @@ local M = {
             ['<C-l>'] = actions.send_to_qflist,
             ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
             ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
+            ['<c-a>'] = actions.select_all,
             ['<cr>'] = actions.select_default,
             ['<c-v>'] = actions.select_vertical,
             ['<c-h>'] = actions.select_horizontal,
-            ['<c-t>'] = actions.select_tab,
             ['<c-p>'] = action_layout.toggle_preview,
             ['<c-o>'] = action_layout.toggle_mirror,
             ['<c-?>'] = actions.which_key,
             ['<c-x>'] = actions.delete_buffer,
+            ['<c-t>'] = trouble.open,
           },
         },
         -- border = false,

@@ -9,6 +9,9 @@ return {
       { 'folke/neodev.nvim', config = true, lazy = true, ft = 'lua' },
       "williamboman/mason.nvim",
     },
+    opts = {
+      inlay_hints = true
+    },
     config = function()
       require 'core.plugins.lsp.lsp'
     end,

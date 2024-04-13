@@ -52,3 +52,9 @@ map('t', '<esc>', '<c-\\><c-n>', { noremap = true })
 map('n', 'K', function()
   vim.lsp.buf.hover()
 end, { desc = 'Hover doc or preview fold' })
+
+if vim.lsp.inlay_hint then
+  vim.keymap.set('n', '<leader>ci', function()
+    vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+  end, { desc = 'Toggle Inlay Hints' })
+end
