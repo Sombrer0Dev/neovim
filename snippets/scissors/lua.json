@@ -1,0 +1,6 @@
+{
+  "autotag": {
+    "body": "<${1:tag}>${2:content}</${1:tag}>",
+    "prefix": "autotag"
+  }
+}

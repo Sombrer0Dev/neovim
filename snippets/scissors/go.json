@@ -1,0 +1,31 @@
+{
+  "fix + fixme": {
+    "body": "// FIXME ${1:comment}",
+    "prefix": [
+      "fix",
+      "fixme"
+    ]
+  },
+  "gomain": {
+    "body": [
+      "package main",
+      "",
+      "func main (){",
+      "\t${1:code}",
+      "}"
+    ],
+    "prefix": "gomain"
+  },
+  "ifec": {
+    "body": [
+      "if err := ${1:func}(${2:args}); err != nil {",
+      "  return ${3:}",
+      "}"
+    ],
+    "prefix": "ifec"
+  },
+  "todo": {
+    "body": "// TODO ${1:comment}",
+    "prefix": "todo"
+  }
+}
