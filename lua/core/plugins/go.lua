@@ -1,9 +1,10 @@
+local icons = require 'utils.icons'
 local M = {
   'ray-x/go.nvim',
   dependencies = {
     'ray-x/guihua.lua',
   },
-  ft = { 'go', 'gomod', 'gosum', 'gotmpl', 'gohtmltmpl', 'gotexttmpl'},
+  ft = { 'go', 'gomod', 'gosum', 'gotmpl', 'gohtmltmpl', 'gotexttmpl' },
   build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   config = function()
     require('go').setup {
@@ -32,7 +33,7 @@ local M = {
         local wk = require 'which-key'
         local default_options = { silent = true }
         vim.keymap.set('n', '<leader>F', function()
-          require("conform").format{ bufnr = bufnr }
+          require('conform').format { bufnr = bufnr }
         end, { desc = 'Format file' })
         wk.register({
           c = {
@@ -70,7 +71,7 @@ local M = {
             j = { "<cmd>'<,'>GoJson2Struct<cr>", 'Json to struct' },
           },
         }, { prefix = '<leader>', mode = 'v', default_options })
-        require('legendary').setup({ extensions = { which_key = { auto_register = true } } })
+        require('legendary').setup { extensions = { which_key = { auto_register = true } } }
       end, -- nil: use on_attach function defined in go/lsp.lua,
       --      when lsp_cfg is true
       -- if lsp_on_attach is a function: use this function as on_attach function for gopls
@@ -79,7 +80,7 @@ local M = {
       -- diagnostic = {
       --   underline = false,
       --   hdlr = true, -- hook lsp diag handler
-      --   virtual_text = { space = 0, prefix = icons.arrows.Diamond }, -- virtual text setup
+      -- virtual_text = { space = 0, prefix = icons.other.solid }, -- virtual text setup
       --   signs = true,
       -- },
       -- lsp_diag_update_in_insert = true,
@@ -88,7 +89,7 @@ local M = {
       -- false if you want to use other formatter tool(e.g. efm, nulls)
       lsp_inlay_hints = {
         enable = false,
-        only_current_line = false,
+        only_current_line = true,
         style = 'eol',
       },
       -- gopls_cmd = nil, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
@@ -100,6 +101,7 @@ local M = {
       dap_debug_gui = false, -- set to true to enable dap gui, highly recommended
       dap_debug_vt = false, -- set to true to enable dap virtual text
       luasnip = true,
+      trouble = true,
     }
   end,
 }

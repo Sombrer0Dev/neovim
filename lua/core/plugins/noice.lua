@@ -213,12 +213,12 @@ function M.config()
     routes = {
       {
         filter = {
-        event = 'msg_show',
-        kind = '',
-        find = 'more line',
-      },
-      opts = { skip = true },
-    } --- @see section on routes
+          event = 'msg_show',
+          kind = '',
+          find = 'more line',
+        },
+        opts = { skip = true },
+      }, --- @see section on routes
     },
     ---@type table<string, NoiceFilter>
     status = {}, --- @see section on statusline components

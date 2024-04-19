@@ -7,10 +7,10 @@ return {
     dependencies = {
       { 'onsails/lspkind-nvim' },
       { 'folke/neodev.nvim', config = true, lazy = true, ft = 'lua' },
-      "williamboman/mason.nvim",
+      'williamboman/mason.nvim',
     },
     opts = {
-      inlay_hints = true
+      inlay_hints = true,
     },
     config = function()
       require 'core.plugins.lsp.lsp'

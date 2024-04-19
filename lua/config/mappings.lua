@@ -14,8 +14,8 @@ map('v', 'J', ":m '>+1<CR>gv=gv")
 map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- paste over currently selected text without yanking it
-map('v', 'p', '"_dp')
-map('v', 'P', '"_dP')
+map('x', 'p', '"_dp')
+map('x', 'P', '"_dP')
 
 -- Diagnostic keymaps
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -23,15 +23,15 @@ map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Floating diagnostic' })
 
 -- Quickfix
-map('n', '<C-j>', '<cmd>cnext<cr>', { desc = 'Next entry' })
-map('n', '<C-k>', '<cmd>cprevious<cr>', { desc = 'Previous entry' })
-map('n', '<leader>qq', "<cmd>lua require('utils.functions').toggle_qf()<cr>", { desc = 'Toggle Quickfix' })
-map('n', '<leader>qd', vim.diagnostic.setqflist, { desc = 'Open diagnostics list' })
-map('n', '<leader>qg', '<cmd>Gitsigns setqflist<cr>', { desc = 'Open git list' })
--- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
-map('n', '<leader>qt', function()
-  utils.search_todos()
-end, { desc = 'List TODOs' })
+-- map('n', '<C-j>', '<cmd>cnext<cr>', { desc = 'Next entry' })
+-- map('n', '<C-k>', '<cmd>cprevious<cr>', { desc = 'Previous entry' })
+-- map('n', '<leader>qq', "<cmd>lua require('utils.functions').toggle_qf()<cr>", { desc = 'Toggle Quickfix' })
+-- map('n', '<leader>qd', vim.diagnostic.setqflist, { desc = 'Open diagnostics list' })
+-- map('n', '<leader>qg', '<cmd>Gitsigns setqflist<cr>', { desc = 'Open git list' })
+-- -- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
+-- map('n', '<leader>qt', function()
+--   utils.search_todos()
+-- end, { desc = 'List TODOs' })
 
 -- Buffer Navigation
 -- resizing splits

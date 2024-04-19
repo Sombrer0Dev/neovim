@@ -86,6 +86,9 @@ local M = {
 
     require('nvim-ts-autotag').setup()
 
+    vim.filetype.add {
+      pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
+    }
     local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
     parser_config.hypr = {
       install_info = {

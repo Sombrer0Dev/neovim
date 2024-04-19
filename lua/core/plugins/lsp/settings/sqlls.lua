@@ -1,4 +1,2 @@
-local opts = {
-
-}
+local opts = {}
 return opts

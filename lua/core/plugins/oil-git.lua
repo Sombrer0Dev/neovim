@@ -1,8 +1,8 @@
 return {
-  "refractalize/oil-git-status.nvim",
-  event = "VeryLazy",
+  'refractalize/oil-git-status.nvim',
+  event = 'VeryLazy',
   dependencies = {
-    "stevearc/oil.nvim",
+    'stevearc/oil.nvim',
   },
 
   config = true,

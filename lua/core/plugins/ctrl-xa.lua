@@ -1,2 +1,2 @@
-local M = { "Konfekt/vim-CtrlXA" }
+local M = { 'Konfekt/vim-CtrlXA' }
 return M

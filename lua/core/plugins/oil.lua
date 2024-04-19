@@ -4,7 +4,7 @@ return {
     require('oil').setup {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
       -- Set to false if you still want to use netrw.
-      default_file_explorer = false,
+      default_file_explorer = true,
       -- Id is automatically added at the beginning, and name at the end
       -- See :help oil-columns
       columns = {
@@ -30,7 +30,7 @@ return {
         concealcursor = 'nvic',
       },
       -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
-      delete_to_trash = false,
+      delete_to_trash = true,
       -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
       skip_confirm_for_simple_edits = false,
       -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
@@ -56,8 +56,6 @@ return {
         ['<CR>'] = 'actions.select',
         ['<C-s>'] = 'actions.select_vsplit',
         ['<C-h>'] = 'actions.select_split',
-        ['<C-t>'] = '<cmd>Grapple select index=2<cr>',
-        ['<C-p>'] = '<cmd>Grapple select index=4<cr>',
         ['<C-v>'] = 'actions.preview',
         ['<C-c>'] = 'actions.close',
         ['<C-l>'] = 'actions.refresh',
@@ -153,7 +151,7 @@ return {
       pattern = 'OilEnter',
       callback = vim.schedule_wrap(function(args)
         local oil = require 'oil'
-        local winid=vim.api.nvim_get_current_win()
+        local winid = vim.api.nvim_get_current_win()
         if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() and not vim.api.nvim_win_get_config(winid).zindex then
           oil.select { preview = true }
         end

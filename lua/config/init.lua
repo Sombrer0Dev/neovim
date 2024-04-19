@@ -21,4 +21,8 @@ local function init()
   require 'config.mappings'
 end
 
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+
 init()

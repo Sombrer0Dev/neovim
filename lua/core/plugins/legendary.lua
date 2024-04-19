@@ -8,7 +8,7 @@ local M = {
   -- dependencies = { 'kkharji/sqlite.lua' }
   config = function()
     require('legendary').setup {
-      col_separator_char = "",
+      col_separator_char = '',
       extensions = {
         diffview = true,
         lazy_nvim = true,
@@ -45,6 +45,6 @@ local M = {
   end,
 }
 
-vim.keymap.set('n', '<leader>o', '<Cmd>Legendary<CR>', {desc = 'Open Legendary'})
+vim.keymap.set('n', '<leader>o', '<Cmd>Legendary<CR>', { desc = 'Open Legendary' })
 
 return M
