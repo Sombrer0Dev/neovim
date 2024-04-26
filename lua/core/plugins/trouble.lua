@@ -18,7 +18,7 @@ local M = {
       desc = 'LSP Definitions / references / ... (Trouble)',
     },
     {
-      '<[t>',
+      '[t',
       function()
         if require('trouble').is_open() then
           require('trouble').prev { skip_groups = true, jump = true }
@@ -32,7 +32,7 @@ local M = {
       desc = 'Previous Trouble/Quickfix Item',
     },
     {
-      '<]t>',
+      ']t',
       function()
         if require('trouble').is_open() then
           require('trouble').next { skip_groups = true, jump = true }

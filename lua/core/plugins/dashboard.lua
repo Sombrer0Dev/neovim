@@ -11,7 +11,7 @@ local M = {
       },
       config = {
         -- header = vim.split(logo, '\n'),
-        header = require('core.plugins.logos.good').megaberk,
+        header = require('core.plugins.logos.good').sharpvim,
         -- stylua: ignore
         center = {
           { action = "Telescope find_files",                   desc = " Find file",      icon = " ", key = "f" },

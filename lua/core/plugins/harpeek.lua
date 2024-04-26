@@ -43,7 +43,7 @@ return {
         return index .. ' ' .. formatted_line
       end,
       winopts = {
-        row = vim.api.nvim_win_get_height(0) - 10,
+        row = vim.api.nvim_win_get_height(0) - 15,
       },
     }
     harpeek.open()
@@ -54,7 +54,7 @@ return {
         function()
           harpeek.toggle {
             winopts = {
-              row = vim.api.nvim_win_get_height(0) - 10,
+              row = vim.api.nvim_win_get_height(0) - 15,
             },
           }
         end,

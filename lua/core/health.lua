@@ -2,7 +2,6 @@ local M = {}
 
 local utils = require 'utils.functions'
 local plugins = vim.g.config.plugins
-local tex = vim.g.config.plugins.tex
 
 local health = vim.health
 local _ok = health.ok
@@ -36,7 +35,7 @@ local programs = {
   },
   fzf = {
     required = true,
-    desc = 'a highly recommended fuzzy finder (nvim-bqf dependency)',
+    desc = 'a highly recommended fuzzy finder',
   },
 }
 
@@ -70,21 +69,6 @@ M.check = function()
     end
   end
 
-  if plugins.spectre.enable then
-    if os == 'Darwin' then
-      if not utils.isExecutableAvailable 'gsed' then
-        _warn 'gsed was not found - nvim-spectre (search and replace) might not work'
-      else
-        _ok(string.format(exec_found_template, 'gsed'))
-      end
-    else
-      if not utils.isExecutableAvailable 'sed' then
-        _warn 'sed was not found - nvim-spectre (search and replace) might not work'
-      else
-        _ok(string.format(exec_found_template, 'sed'))
-      end
-    end
-  end
 
   if plugins.telescope.fzf_native.enable then
     if

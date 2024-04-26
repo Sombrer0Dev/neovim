@@ -17,12 +17,10 @@ local function init()
   require 'utils.globals'
   -- lazy.nvim
   require 'config.lazy'
-  -- global mappings (must be loaded after lazy)
-  require 'config.mappings'
 end
 
-vim.filetype.add({
-  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-})
+vim.filetype.add {
+  pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
+}
 
 init()

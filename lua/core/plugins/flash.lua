@@ -1,12 +1,19 @@
 return {
   'folke/flash.nvim',
+  enabled = false,
   event = 'VeryLazy',
   opts = {
+    search = { multi_window = false},
     labels = 'arstgmneioqwfpbzxcdvjluykh',
     rainbow = {
       enabled = true,
       -- number between 1 and 9
       shade = 5,
+    },
+    modes = {
+      char = {
+        multi_line = false,
+      },
     },
   },
   keys = {

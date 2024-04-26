@@ -1,5 +1,5 @@
 local opts = {
-  buildFlags = { '-tags=migrate', '-tags=tools' },
+  buildFlags = { '-tags=migrate', '-tags=tools',  '-tags=wireinject'},
 }
 
 return opts

@@ -233,6 +233,7 @@ return {
     'yamlls',
     'phpactor',
     'sqlls',
+    -- 'basedpyright',
   },
 
   -- Tools that should be installed by Mason
