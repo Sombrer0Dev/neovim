@@ -1,6 +1,7 @@
 local M = {
   'folke/trouble.nvim',
   branch = 'dev', -- IMPORTANT!
+  enabled = false,
   keys = {
     {
       '<leader>tt',
@@ -21,7 +22,7 @@ local M = {
       '[t',
       function()
         if require('trouble').is_open() then
-          require('trouble').prev { skip_groups = true, jump = true }
+          require('trouble').prev { jump = true }
         else
           local ok, err = pcall(vim.cmd.cprev)
           if not ok then
@@ -35,7 +36,7 @@ local M = {
       ']t',
       function()
         if require('trouble').is_open() then
-          require('trouble').next { skip_groups = true, jump = true }
+          require('trouble').next { jump = true }
         else
           local ok, err = pcall(vim.cmd.cnext)
           if not ok then

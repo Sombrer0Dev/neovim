@@ -10,24 +10,21 @@ local M = {
         statusline = false,
       },
       config = {
-        -- header = vim.split(logo, '\n'),
         header = require('core.plugins.logos.good').sharpvim,
+        -- header = require('core.plugins.logos.bad').big2,
         -- stylua: ignore
         center = {
-          { action = "Telescope find_files",                   desc = " Find file",      icon = " ", key = "f" },
-          { action = "ene | startinsert",                      desc = " New file",       icon = " ", key = "n" },
-          { action = "Leet",                                   desc = " LeetCode",       icon = " ", key = "c" },
-          { action = "Telescope oldfiles",                     desc = " Recent files",   icon = " ", key = "r" },
-          { action = "Telescope live_grep",                    desc = " Find text",      icon = " ", key = "g" },
-          { action = "e $MYVIMRC | cd %:p:h | wincmd k | pwd", desc = " Settings",       icon = " ", key = "s" },
-          { action = "Lazy",                                   desc = " Lazy",           icon = "󰒲 ", key = "l" },
-          { action = "qa",                                     desc = " Quit",           icon = " ", key = "q" },
+          { action = require("core.plugins.fzf.pickers").files,          key = "f", desc = ""},
+          { action = "e $MYVIMRC | cd %:p:h | wincmd k | pwd",           key = "s", desc = ""},
+          { action = require("core.plugins.fzf.pickers").grep, key = "g", desc = ""},
+          { action = "qa",                                               key = "q", desc = ""},
         },
-        footer = function()
-          local stats = require('lazy').stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          return { '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms' }
-        end,
+        footer = {},
+        -- footer = function()
+        --   local stats = require('lazy').stats()
+        --   local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        --   return { '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms' }
+        -- end,
       },
     }
 
@@ -46,6 +43,8 @@ local M = {
         end,
       })
     end
+
+    vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#E7516A' })
 
     return opts
   end,

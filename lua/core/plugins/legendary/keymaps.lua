@@ -6,9 +6,6 @@ function M.default_keymaps()
 
     { '<ESC>', '<cmd>noh<CR>', mode = 'n' },
 
-    -- <leader>jk to clear notifications
-    { '<leader>jk', ':Dismiss<CR>' },
-
     -- allow moving the cursor through wrapped lines using j and k,
     { 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true }, mode = { 'n', 'v' } },
     { 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true }, mode = { 'n', 'v' } },

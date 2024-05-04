@@ -1,5 +1,6 @@
 return {
   'levouh/tint.nvim',
+  enabled = false,
   priority = 999,
   config = function()
     require('tint').setup {

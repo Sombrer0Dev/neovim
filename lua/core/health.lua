@@ -70,14 +70,6 @@ M.check = function()
   end
 
 
-  if plugins.telescope.fzf_native.enable then
-    if
-      not (utils.isExecutableAvailable 'cmake' or utils.isExecutableAvailable 'make')
-      or not (utils.isExecutableAvailable 'gcc' or utils.isExecutableAvailable 'clang')
-    then
-      _warn 'Make sure your platform meets the requirements for building telescope-fzf-native: https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation'
-    end
-  end
 end
 
 return M

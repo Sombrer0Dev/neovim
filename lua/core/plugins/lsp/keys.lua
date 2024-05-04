@@ -15,46 +15,45 @@ M._keys = {
   { '<leader>lI', '<cmd>LspInfo<cr>', desc = 'Lsp Info' },
   {
     '<leader>ld',
-    function()
-      require('telescope.builtin').lsp_definitions { reuse_win = true }
-    end,
+    '<cmd>FzfLua lsp_definitions<cr>',
     desc = 'Goto Definition',
     has = 'definition',
   },
-  { '<leader>lr', '<cmd>Telescope lsp_references<cr>', desc = 'References' },
+  { '<leader>lr', '<cmd>FzfLua lsp_references<cr>', desc = 'References' },
   {
     '<leader>li',
-    function()
-      require('telescope.builtin').lsp_implementations { reuse_win = true }
-    end,
+    '<cmd>FzfLua lsp_implementations<cr>',
     desc = 'Goto Implementation',
   },
   {
     '<leader>lt',
-    function()
-      require('telescope.builtin').lsp_type_definitions { reuse_win = true }
-    end,
+    '<cmd>FzfLua lsp_typedefs<cr>',
     desc = 'Goto Type Definition',
   },
   { '<leader>lS', vim.lsp.buf.signature_help, desc = 'Signature Help', has = 'signatureHelp' },
   -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-  { '<leader>ln', vim.diagnostic.goto_next, desc = 'Next Diagnostic' },
-  { '<leader>lp', vim.diagnostic.goto_prev, desc = 'Prev Diagnostic' },
   {
     '<leader>la',
-    vim.lsp.buf.code_action,
+    function()
+      require('fzf-lua').lsp_code_actions {
+        winopts = {
+          relative = 'cursor',
+          width = 0.6,
+          height = 0.6,
+          row = 1,
+          preview = { horizontal = 'up:70%' },
+        },
+        previewer = 'codeaction_native',
+        preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style='omit' --file-style='omit'",
+      }
+    end,
     desc = 'Code Action',
     mode = { 'n', 'v' },
     has = 'codeAction',
   },
-  { '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>', desc = 'Document Symbols' },
-  { '<leader>le', '<cmd>Telescope diagnostics bufnr=0<cr>', desc = 'Document Diagnostics' },
+  { '<leader>ls', '<cmd>FzfLua lsp_document_symbols<cr>', desc = 'Document Symbols' },
+  { '<leader>le', '<cmd>FzfLua diagnostics_document<cr>', desc = 'Document Diagnostics' },
   { '<leader>lq', vim.diagnostic.setloclist, desc = 'Diagnostics in qflist' },
-  { '<leader>lws', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', desc = 'Workspace Symbols' },
-  { '<leader>lwd', '<cmd>Telescope diagnostics<cr>', desc = 'Workspace Symbols' },
-  { '<leader>lwa', vim.lsp.buf.add_workspace_folder, desc = 'Add Folder' },
-  { '<leader>lwl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', desc = 'List Folders' },
-  { '<leader>lwr', vim.lsp.buf.remove_workspace_folder, desc = 'Remove Folder' },
 }
 
 function M.on_attach(client, buffer)

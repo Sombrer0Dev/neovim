@@ -1,9 +1,10 @@
 return {
   {
     'folke/zen-mode.nvim',
+    enabled=false,
     keys = {
       {
-        '<leader>zz',
+        '<leader>z',
         function()
           require('zen-mode').toggle {
             window = {

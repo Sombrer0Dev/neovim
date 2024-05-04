@@ -22,13 +22,11 @@ local M = {
     groups = {
       mode = { 'n', 'v' },
       ['<leader>B'] = { name = 'Buffers' },
-      ['<leader>f'] = { name = 'Files' },
       ['<leader>l'] = { name = 'LSP' },
       ['<leader>m'] = { name = 'Misc' },
-      ['<leader>q'] = { name = 'Quickfix' },
-      ['<leader>s'] = { name = 'Search' },
-      ['<leader>t'] = { name = 'Toggles' },
-      ['<leader>x'] = { name = 'Trouble' },
+      ['<leader>f'] = { name = 'Fzf' },
+      ['<leader>t'] = { name = 'Trouble' },
+      ['<leader>c'] = { name = 'Code' },
     },
   },
   config = function(_, opts)

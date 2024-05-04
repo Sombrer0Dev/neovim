@@ -4,8 +4,6 @@ local M = {
   cmd = 'Neogit',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim', -- optional
-    'ibhagwan/fzf-lua', -- optional
   },
   opts = {
     disable_signs = false,
@@ -17,7 +15,7 @@ local M = {
       item = { '>', 'v' },
       section = { '>', 'v' },
     },
-    integrations = { telescope = true, diffview = true },
+    integrations = { fzf_lua = true, diffview = true },
     -- override/add mappings
     mappings = {
       -- modify status buffer mappings

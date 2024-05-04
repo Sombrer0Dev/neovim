@@ -40,16 +40,6 @@ M.path_exists = function(path)
   return vim.loop.fs_stat(path)
 end
 
--- Return telescope files command
-M.project_files = function()
-  local path = vim.loop.cwd() .. '/.git'
-  if M.path_exists(path) then
-    return 'Telescope git_files'
-  else
-    return 'Telescope find_files'
-  end
-end
-
 -- toggle quickfixlist
 M.toggle_qf = function()
   local windows = fn.getwininfo()
@@ -212,5 +202,35 @@ end
 M.is_empty = function(str)
   return str == nil or str == ''
 end
+
+M.is_home_dir = function(path)
+  local homeDir = os.getenv('HOME') or os.getenv('USERPROFILE') or vim.uv.os_homedir()
+  homeDir = homeDir:gsub('[\\/]+$', '') -- Remove trailing path separators
+  path = path:gsub('[\\/]+$', '') -- Remove trailing path separators
+  return path == homeDir
+end
+
+
+M.is_fs_root = function(path)
+  if vim.uv.os_uname().version:match('Windows') then
+    return path:match('^%a:$')
+  else
+    return path == '/'
+  end
+end
+
+local local_cwd = vim.uv.cwd()
+---@param loose_or_path? boolean|string
+M.safe_cwd = function(loose_or_path)
+  if loose_or_path == true then
+    return vim.uv.cwd()
+  end
+  local cwd = (type(loose_or_path) == 'string' and loose_or_path ~= '') and loose_or_path or vim.uv.cwd()
+  if M.is_home_dir(cwd) or M.is_fs_root(cwd) then
+    return local_cwd
+  end
+  return cwd
+end
+
 
 return M
